@@ -53,12 +53,12 @@ manual (MANUAL.txt) to HTML, with versions of the same JSON
 filter written in compiled Haskell (`smallcaps`) and interpreted
 Python (`smallcaps.py`):
 
-  Command                                 Time
-  --------------------------------------- -------
-  `pandoc`                                1.01s
-  `pandoc --filter ./smallcaps`           1.36s
-  `pandoc --filter ./smallcaps.py`        1.40s
-  `pandoc --lua-filter ./smallcaps.lua`   1.03s
+    Command                                 Time
+    --------------------------------------- -------
+    `pandoc`                                1.01s
+    `pandoc --filter ./smallcaps`           1.36s
+    `pandoc --filter ./smallcaps.py`        1.40s
+    `pandoc --lua-filter ./smallcaps.lua`   1.03s
 
 As you can see, the Lua filter avoids the substantial overhead
 associated with marshaling to and from JSON over a pipe.
