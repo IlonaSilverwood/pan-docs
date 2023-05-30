@@ -1,7 +1,5 @@
 # Introduction
 
-# Introduction
-
 Pandoc filters allow the pandoc
 abstract syntax tree (AST) to be manipulated between the parsing
 and the writing phase. [Traditional pandoc
