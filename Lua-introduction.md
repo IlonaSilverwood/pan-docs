@@ -1,6 +1,8 @@
 # Introduction
 
-Pandoc has long supported filters, which allow the pandoc
+# Introduction
+
+Pandoc filters allow the pandoc
 abstract syntax tree (AST) to be manipulated between the parsing
 and the writing phase. [Traditional pandoc
 filters](https://pandoc.org/filters.html) accept a JSON
@@ -9,19 +11,13 @@ representation of the AST. They may be written in any
 programming language, and invoked from pandoc using the
 `--filter` option.
 
-Although traditional filters are very flexible, they have a
-couple of disadvantages. First, there is some overhead in
-writing JSON to stdout and reading it from stdin (twice, once on
-each side of the filter). Second, whether a filter will work
-will depend on details of the user's environment. A filter may
-require an interpreter for a certain programming language to be
-available, as well as a library for manipulating the pandoc AST
-in JSON form. One cannot simply provide a filter that can be
-used by anyone who has a certain version of the pandoc
-executable.
+Traditional JSON filters have limitations:
+1. Writing JSON to stdout and reading it from stdin (twice, once on
+each side of the filter) is inefficient.
+2. External dependencies vary between users, and universal JSON filters are not possible.
 
-Starting with version 2.0, pandoc makes it possible to write
-filters in Lua without any external dependencies at all. A Lua
+Pandoc 2.0 and subsequent versions make it possible to write
+filters in Lua without any external dependencies. A Lua
 interpreter (version 5.4) and a Lua library for creating pandoc
 filters is built into the pandoc executable. Pandoc data types
 are marshaled to Lua directly, avoiding the overhead of writing
