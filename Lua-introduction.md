@@ -1,33 +1,16 @@
-# Introduction
+Create custom outputs with pandoc's embedded Lua engine.
 
-Pandoc filters manipulate the pandoc
-abstract syntax tree (AST) between the parsing
-and the writing phases. 
+## Introduction
 
-[JSON filters](https://pandoc.org/filters.html) accept a JSON
-representation of the pandoc AST and produce an altered JSON
-representation of the AST. They may be written in any
-programming language, and invoked from pandoc using the
-`--filter` option.
+<!--- Intro to address "why should I care?" --->
+With Lua filters, you can write Pandoc filters  without any external dependencies.
+Besides the simpler set-up, Lua filters are generally faster and can access utility functions to manipulate document elements. 
 
- JSON filters have limitations:
-- Writing JSON to stdout and reading it from stdin (twice, once on
-each side of the filter) is inefficient.
-- External dependencies vary between users, and universal JSON filters are not possible.
+<!---quick technical overview-->
+Since Pandoc 2.0, the pandoc executable has a built-in Lua interpreter (version 5.4) and a Lua library for creating pandoc filters.
+Pandoc data types are marshaled to Lua directly, avoiding the overhead of writing JSON to stdout and reading it from stdin.
 
-
-Since Pandoc 2.0, you can write
-
-filters in Lua without any external dependencies.
-The pandoc executable has a built-in Lua
-interpreter (version 5.4) and a Lua library for creating pandoc
-filters. Pandoc data types
-are marshaled to Lua directly, avoiding the overhead of writing
-JSON to stdout and reading it from stdin.
-
-For example, this Lua filter converts strong emphasis
-to small caps:
-
+Here is an example of a Lua filter that converts strong emphasis to small caps:
 
 ``` lua
 return {
@@ -53,10 +36,24 @@ replace it with a SmallCaps element with the same content.
 To run it, save it in a file, say `smallcaps.lua`, and invoke
 pandoc with `--lua-filter=smallcaps.lua`.
 
+## Why Lua filters over JSON?
+
+[JSONfilters](https://pandoc.org/filters.html) accept a JSON
+representation of the pandoc AST and produce an altered JSON
+representation of the AST. They may be written in any
+programming language, and invoked from pandoc using the
+`--filter` option.
+
+ However, JSON filters have limitations:
+ 
+ - Writing JSON to stdout and reading it from stdin (twice, once on
+each side of the filter) is inefficient.
+- External dependencies vary between users, and universal JSON filters are not possible.
+
 Here's a quick performance comparison, converting the pandoc
 manual (MANUAL.txt) to HTML, with versions of the same JSON
 filter written in compiled Haskell (`smallcaps`) and interpreted
-Python (`smallcaps.py`):
+Python (`smallcaps.py`): 
 
     Command                                 Time
     --------------------------------------- -------
