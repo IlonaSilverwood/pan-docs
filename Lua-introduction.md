@@ -11,9 +11,10 @@ programming language, and invoked from pandoc using the
 `--filter` option.
 
 Traditional JSON filters have limitations:
-1. Writing JSON to stdout and reading it from stdin (twice, once on
+- Writing JSON to stdout and reading it from stdin (twice, once on
 each side of the filter) is inefficient.
-2. External dependencies vary between users, and universal JSON filters are not possible.
+- External dependencies vary between users, and universal JSON filters are not possible.
+
 
 Pandoc 2.0 and subsequent versions make it possible to write
 filters in Lua without any external dependencies. A Lua
