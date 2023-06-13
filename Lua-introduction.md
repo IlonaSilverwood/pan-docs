@@ -2,9 +2,9 @@
 
 Pandoc filters manipulate the pandoc
 abstract syntax tree (AST) between the parsing
-and the writing phases. [JSON
+and the writing phases. 
 
-filters](https://pandoc.org/filters.html) accept a JSON
+[JSON filters](https://pandoc.org/filters.html) accept a JSON
 representation of the pandoc AST and produce an altered JSON
 representation of the AST. They may be written in any
 programming language, and invoked from pandoc using the
