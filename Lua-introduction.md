@@ -25,8 +25,9 @@ filters. Pandoc data types
 are marshaled to Lua directly, avoiding the overhead of writing
 JSON to stdout and reading it from stdin.
 
-Here is an example of a Lua filter that converts strong emphasis
+For example, this Lua filter converts strong emphasis
 to small caps:
+
 
 ``` lua
 return {
