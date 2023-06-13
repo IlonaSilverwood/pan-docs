@@ -16,7 +16,8 @@ each side of the filter) is inefficient.
 - External dependencies vary between users, and universal JSON filters are not possible.
 
 
-Pandoc 2.0 and subsequent versions make it possible to write
+Since Pandoc 2.0, you can write
+
 filters in Lua without any external dependencies. A Lua
 interpreter (version 5.4) and a Lua library for creating pandoc
 filters is built into the pandoc executable. Pandoc data types
