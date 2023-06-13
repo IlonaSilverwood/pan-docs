@@ -18,9 +18,10 @@ each side of the filter) is inefficient.
 
 Since Pandoc 2.0, you can write
 
-filters in Lua without any external dependencies. A Lua
+filters in Lua without any external dependencies.
+The pandoc executable has a built-in Lua
 interpreter (version 5.4) and a Lua library for creating pandoc
-filters is built into the pandoc executable. Pandoc data types
+filters. Pandoc data types
 are marshaled to Lua directly, avoiding the overhead of writing
 JSON to stdout and reading it from stdin.
 
