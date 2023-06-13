@@ -10,7 +10,7 @@ representation of the AST. They may be written in any
 programming language, and invoked from pandoc using the
 `--filter` option.
 
-Traditional JSON filters have limitations:
+ JSON filters have limitations:
 - Writing JSON to stdout and reading it from stdin (twice, once on
 each side of the filter) is inefficient.
 - External dependencies vary between users, and universal JSON filters are not possible.
