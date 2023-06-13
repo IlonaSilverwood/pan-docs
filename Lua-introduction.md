@@ -1,8 +1,9 @@
 # Introduction
 
-Pandoc filters allow the pandoc
-abstract syntax tree (AST) to be manipulated between the parsing
-and the writing phase. [Traditional pandoc
+Pandoc filters manipulate the pandoc
+abstract syntax tree (AST) between the parsing
+and the writing phases. [JSON
+
 filters](https://pandoc.org/filters.html) accept a JSON
 representation of the pandoc AST and produce an altered JSON
 representation of the AST. They may be written in any
